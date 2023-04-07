@@ -672,6 +672,10 @@ h1, h2, h3{
     .about-banner .bnr-line{
         margin-bottom: 2em;
     }
+    
+     .about-banner .bnr-btn{ 
+        padding: 0.3rem 1.7em; 
+    }
 
     .about-features .left-col{
         float: none;
