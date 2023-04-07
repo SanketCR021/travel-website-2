@@ -1,0 +1,870 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Fira+Sans:ital@1&family=Lato:ital,wght@1,300&family=Montserrat:ital,wght@0,300;0,400;0,500;0,700;1,800;1,900&family=Poppins:wght@200;300;500&family=Roboto:ital,wght@1,300&family=Ubuntu&display=swap');
+
+/* CSS Reset */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+        /* font-size : 10px;
+        16px -----  100%   (default by browser)
+        10px ----- (100 / 16) * 10     
+        10 px ===  62.5%                           
+                         (hame convienintly use karna hai "rem" aur "em" ko isliye hame default  16px ko 10px banana hai leki isse respnsivness nahi aaegi to ham islye fontsize ko default percentage me dege jo ki hogi 62.5% jase hmne nikala) */
+
+        
+        font-size: 62.5%;
+
+                                /* to agar hame abhi normal size me text chaiye hoga to ham easily "rem" ye "em" me usko specify kr skte hai   (1.6 rem === 16 px) */
+}
+
+body{
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.7;
+
+}
+
+.header{
+    height: 95vh;
+    /* linear gradient is added jut to darken the image somewhat */
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)) , url('../image/header-image.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+/* ############################   UTILITY  CLASSES  ######################### */
+ 
+.container{
+    max-width: 1200px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.lg-heading{
+    font-size: 3.5rem;
+}
+
+.md-heading{
+    font-size: 1.2rem;
+}
+
+.btn{
+    text-transform: uppercase;
+    display: inline-block;
+    font-weight: 500;
+    padding: 0.5em 1.5em;
+    margin: 0.5em 0;
+    text-decoration: none;
+}
+
+.btn-primary{
+    background-color: #fff;
+    border-radius: 10em;
+}
+
+.btn-primary:hover{
+    background-color: #ddd;
+}
+
+.btn-secondary{
+    border: 2px solid #e63946;
+    border-radius: 2.5em;
+}
+
+.btn-secondary:hover{
+    background-color: #fcf3f2;
+}
+
+.bg-dark{
+    background-color: #263238;
+}
+
+.text-red{
+    color: #e63946;
+}
+
+.text-light{
+    color: #f4f4f4;
+}
+
+.text-black{
+    color: #333;
+}
+
+.text-grey{
+    color: #555;
+}
+
+/* ############################################################################ */
+
+
+/* ############################### NAVIGATION BAR STYLING ############################ */
+
+.navbar{
+    /* border: 2px solid white; */
+    padding: 1rem;
+}
+
+/* .header .logo,
+.header .nav-bar .nav-item a{
+    color: white;
+} */
+
+.navbar .logo{
+    float: left;
+}
+
+.navbar .nav-items{
+    float: right;
+    margin-top: 1rem;
+}
+
+.navbar::after{                   /*yaha hamne float clear kr di  */
+    content: '';
+    display: block;
+    clear:both;
+}
+
+.navbar .nav-item{
+    display:inline-block;
+    padding: 1rem;
+}
+
+.navbar a{
+   text-decoration: none;
+   font-size: 1.6rem;
+   padding-bottom: 0.3rem;
+   color: white;
+   text-transform: uppercase;
+}
+
+.navbar a:hover{
+    border-bottom: 1px solid #fff;
+}
+
+
+/* .navbar a:link,
+.navbsr a:visited{
+    color: white;
+
+} */
+
+p, li{
+     font-size: 1.6rem;         /* (1.6rem == 16px) */
+     margin-bottom: 0.5em;      /* (1em == local rem   i.e here 1em == 1.6rem)  and 0.5em = 1.6rem/2 == 0.8rem(8px) */
+                            /* hmne yaha margin "em" me isliye li kyuki hmne "rem" me font-size diya tha to agar ham   0.5em me margine dege to respnsivness me hamesa 0.5em hoga half 1.6rem, yanni ki agar "rem" change hoga to "em" bhi change hog respectively */
+    
+     letter-spacing: 0.15em;
+}
+
+h1, h2, h3{
+    margin-bottom: 0.5em;
+    letter-spacing: 0.15em;
+    font-weight: 500;
+}
+
+/*  ##########################    HEADER CONTENT ####################################  */
+
+.header-content{
+    position: absolute;    
+                             /*jiski position change krni hoti hai usko "ABSOLUTE" position dete hai aur jis parent ke respect me krni hoti hai usko   "RELATIVE" positioning dete hai*/
+                            /* is case me "header-content" ko "ABSOLUTE" position di hai aur uske parent "header" ho "RELATIVE" position di hai (line no  36*/
+    /* border: 1px solid white;  */
+    left: 30%;
+    top: 50%;
+    transform: translate(-22%, -50%);   /*ye krne se "header-content" proper center me aa jarega */
+    text-align: center;
+    background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.c));
+}
+
+.header-content h1{
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #fff;
+    /* max-width: 1200px; */
+    /* width: 1000px; */
+}
+
+.header-content p{
+    font-size: 1.6rem;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+/* #############################  SHOWCASE SECTION STYLING ###################################*/
+
+.showcase{
+    background-color: #ddd;
+    padding: 10rem 0;
+}
+
+
+.row{
+    height: 350px;
+    background-color: #fff;
+    box-shadow: 0px 0px 20px 0px #4948484e;   /*(horizontal offset, vertical offset, blur, spread color)*/
+}
+
+.row1{
+    margin-bottom: 10em;
+}
+
+.row1 .img-item, .row2 .text-item{
+    float: left;
+    width: 50%;
+    height: 100%;
+}
+
+.row2 .img-item, .row1 .text-item{
+    float: right;
+    width: 50%;
+    height: 100%;
+}
+
+.row .img-item img{
+    /* background:  url('../image/header-image.jpg');      /* ye ek tarika hai image insert krne ka *
+    background-position: center; 
+    background-size: cover;
+    background-repeat: no-repeat; */
+
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    /* background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)); */
+    filter: brightness(80%);
+    object-fit: cover;    /* ye lagane se aspect ratio maintain reta hai responsiveness me */
+
+}
+
+.row .text-item{
+    padding: 3.5rem;
+}
+
+/*  hmne "img-item" aur "text-item" ko float kiya tha, generally isse div ki height khatam ho jati hai pas hmne "row
+ class me line no 201 me heght specify ki thi 350 px isliye yaha height khatam nai hui par agr agar responsiveness ki need ke hisab se ham float clear kr denge */
+
+.row::after{
+    content: '';
+    display: block;
+    clear: both;
+}
+
+/* ############################################ FEATURES SECTION ############################ */
+
+.features{
+    padding: 10rem 0;
+}
+
+.features .feature-box h2{
+    font-size: 2.4rem;
+}
+
+.feature-box .box{
+    width: 33.33%;
+    float: left;
+    /* border: 1px solid red;  */
+    padding: 4rem 2rem;
+    text-align: center;
+    
+}
+
+.features .feature-box {
+    box-shadow: 0px 0px 20px 0px #312a2a9e;
+    /*font-family: 'Poppins', sans-serif;/**/
+    /* border: 4px solid green; */
+}
+
+.feature-box::after{        /* clearing the float */
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.box-1, .box-3{
+   background-color: #263238;
+   color: #fff;
+} 
+
+.box-2{
+    background-image: linear-gradient(to left top, #a70000, #bb2025, #cb3844, #da4e62, #e5657f);
+    color: #fff;
+}
+
+.box i{
+    font-size: 4em;
+    padding: 0.5em;
+}
+
+/* ##################################  FOOTER SECTION STYLING ########################## */
+   
+.footer{
+    /* border: 1px solid red; */
+    background-color: #263238;
+    color:#fff;
+    padding: 5rem 0 2.54rem 0;
+}
+
+.social-media{
+    /* border: 1px solid white; */
+    text-align: center;
+}
+
+.social-media i{
+    padding-right: 1em;
+    padding-bottom: 0.5em;
+}
+
+.fa-facebook:hover{
+    color: rgb(7, 76, 213);
+}
+
+.fa-instagram:hover{
+    color: rgb(192, 18, 91);
+}
+
+.fa-twitter:hover{
+    color: rgb(5, 217, 255);
+}
+
+/* ################################ ABOUT PAGE STYLING ############################# */
+
+.about{
+    padding: 5rem 0;
+}
+
+.about-heading::after{         /* "About Us" wali line ke niche wali line ke liye */
+    content: "";
+    color: #e63946;
+    border-bottom: 6px solid;
+    display: block;
+    margin-bottom: 1em;
+}
+
+.about-features{
+    /* border: 2px solid red; */
+    margin-top: 1.5rem;
+}
+
+.about-features ul{
+    list-style: none;
+}
+
+.about-features li{
+    margin-bottom: 1.5em;
+}
+
+.about-features li::before{
+    content: "\2713";
+    color: #e63946;
+    font-weight: bold;
+    padding-right: 0.6em;
+}
+
+.about-features .left-col{
+    float: left;
+    width: 50%;
+    /* border: 2px solid black; */
+    padding: 4em;
+    text-align: center;
+}
+
+.about-features .right-col{
+    float: right;
+    width: 50%;
+    /* border: 2px solid green; */
+    padding: 4em;
+    text-align: center;
+}
+
+.about-features::after{     /*  float clear bhi to krni hai */
+    content: "";
+    display: block;
+    clear: both;
+}
+
+/* #####################  ABOUT PAGE FIGURES ################### */
+
+.about-figures{
+    border-top: 6px solid red;
+    padding-top: 2em;
+}
+
+.figure span{
+    font-size: 3.5rem;
+    font-weight: bold;
+    color: #e63946;
+}
+
+.about span:hover{
+    color:#ed721f;
+}
+
+.figure p{
+    font-size: 3rem;
+    font-weight: 500;
+}
+
+.figure{
+    /* border: 2px solid green; */
+    width: 25%;
+    text-align: center;
+    padding-top: 2em;
+    float: left;
+}
+
+.about-figures::after{
+    content: "";
+    display: block;
+    clear: both;
+}
+
+/* #####################  ABOUT PAGE BANNER ################### */
+
+.about-banner{
+    /* border: 2px solid black; */
+    margin-top: 3em;
+    padding: 2em;
+    background-image: linear-gradient(to left, #dc2c31, #e3472b, #e95d25, #ed721f, #f0861b);
+    box-shadow: 0px 0px 20px 0px #4948484e;
+}
+
+.about-banner:hover{
+    background-image: linear-gradient(to right, #dc2c31, #e3472b, #e95d25, #ed721f, #f0861b);
+}
+
+.about-banner .bnr-line{
+    color: #fff;
+    font-weight: 700;
+    font-size: 2rem;
+    margin-top: 0.6em;
+}
+
+.about-banner .bnr-btn{
+    text-decoration: none;
+    font-size: 3rem;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: 700;
+    border: 4px solid #f4f4f4;
+    padding: 0.3rem 2.5em;
+    color: #f4f4f4;
+    letter-spacing: 0.5rem;
+}
+
+.bnr-btn:hover{
+    background-color: #f4f4f4;
+    color: #dc2c31;
+    border: 4px solid #e95d25;
+}
+
+.bnr-left{
+    float: left;
+    width: 60%;
+}
+
+
+.bnr-right{
+    float: right;
+    width: 40%;
+    text-align: right;
+}
+
+.about-banner::after{
+    content: "";
+    display: block;
+    clear: both;
+}
+
+/* ################################ CONTACT PAGE STYLING ############################# */
+
+.company-add{
+    /* border: 2px dashed black; */
+    float: left;
+    width: 49%;
+    height: 700px;
+    background: #fff;
+    padding: 2rem;
+}
+
+.company-add h2{
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 0;
+}
+
+.company-add i{
+    font-size: 1.8rem;
+    margin-right: 0.2em;
+    color: #e3472b;
+}
+
+.company-add p{
+    margin-left:2.5rem;
+}
+
+.company-add img{
+    width: 100%;
+    object-fit: cover;
+}
+
+.company-add img:hover{
+    box-shadow: 0px 0px 20px 0px #4948484e;
+}
+
+.company-add .company{
+    margin-bottom: 2em;
+}
+
+.contact-containts::after{
+    content: "";
+    display: block;
+    clear: both;
+}
+
+/* ########################  CONTACT US FORM ############################# */
+
+.contact-form{
+    padding: 10rem 0;
+    background: #f7f7f7;
+}
+
+.contact-us{
+    /* border: 2px dotted orange; */
+    float:right;
+    width: 49%;
+    height: 700px;
+    font-size: 1.6rem;
+    background: #fff;
+    padding: 2rem;
+}
+
+.contact-us h1::after{  
+    display: block;                          /* line bhi to banani hai */
+    content: "";
+    width: 97%;
+    border: 3px solid #e3472b;
+}
+
+.form-element{
+    margin: 0.8em 0;
+}
+
+.form-element label{
+    display: block;
+    font-weight: 500;
+}
+
+.form-element label::after{
+    content: "*";
+    margin-left: 0.1em;
+    color: red;
+}
+
+.form-element input{
+    padding: 0.5rem;
+    width: 96%;
+}
+
+.form-element textarea{
+    padding: 0.5rem;
+    width: 96%;
+    height: 8em;
+}
+
+.form-btn{
+    display: block;
+    margin: 0 auto;
+    padding: 0.5em 3em;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    color: #fff;
+    background-color: #e63946;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    border-radius: 1rem;
+    letter-spacing: 0.20rem;
+    font-weight: bold;
+}
+
+.form-btn:hover{
+    background-color: #fff;
+    color: #e63946;
+    border: 4px solid #e63946;
+}
+
+/* ############################# MEDIA QUERIES #################################### */
+
+@media (max-width: 500px) {
+    html{
+        /* font-size: 8px; */
+        font-size: 50%;
+    }
+
+    /* ################## HOME PAGE #########################*/
+
+    .navbar .nav-items, .navbar .logo{
+        float: none;
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+
+    .header-content p{
+        display: none;
+    }
+    
+    .row{
+        height: auto;
+        width: 100%;
+    }
+    
+    .row .img-item, .row .text-item{
+        float: none;
+        width: 100%;
+        text-align: center;
+    }
+
+    .features .feature-box {
+        box-shadow: none;
+    } 
+    
+    .features .feature-box .box{
+        float: none;
+        width: 100%;
+        text-align: center;
+        box-shadow: 0px 0px 20px 0px #4948484e;
+    }
+
+    .feature-box .box-2 , .feature-box .box-3{
+        margin-top: 7rem;
+    }
+    
+     /* ################## ABOUT PAGE #########################*/
+
+    .about h2, .about p, .about .about-features, .about-figures{
+        padding : 0 1rem 0 1rem;
+    }
+
+    .bnr-left, .bnr-right{
+        float: none;
+        width: 100%;
+        text-align: center;
+        
+    }
+
+    .figure span{
+        font-size: 2.5rem;
+        font-weight: bold;
+        color: #e63946;
+    }
+    
+    .figure p{
+        font-size: 1.5rem;
+        font-weight: 500;
+    }
+
+    .about-banner .bnr-line{
+        margin-bottom: 2em;
+    }
+
+    .about-features .left-col{
+        float: none;
+        width: 100%;
+        /* border: 2px solid green; */
+         padding: 0;
+         margin-top: 3rem;
+        text-align: left;
+    }
+
+    .about-features .right-col{
+        float: none;
+        width: 100%;
+        /* border: 2px solid green; */
+         padding: 0;
+         margin-bottom: 3rem;
+        text-align:left; 
+    }
+
+    /* ################## CONTACT PAGE #########################*/
+
+    .company-add .company{
+        margin-bottom: 4em;
+    }
+
+    .company-add{
+        float: none;
+        width: 100%;
+        height: auto;
+        margin-bottom: 4rem;
+        text-align: center;
+        padding: 4rem;
+        box-shadow: 0px 0px 20px 0px #4948481d;
+    }
+
+    .contact-us{
+        float: none;
+        width: 100%;
+        height: auto;
+        margin-bottom: 4rem;
+        text-align: center;
+        padding: 4rem;
+        box-shadow: 0px 0px 20px 0px #4948481d;
+    }
+
+    .form-element textarea{
+        margin-top: 1rem;
+    }
+
+    .form-btn{
+        margin-top: 2.5rem;
+    }
+
+}
+
+
+
+@media (min-width: 501px) and (max-width:768px) {
+    html{
+        /* font-size: 8px; */
+        font-size: 50%;
+    }
+
+    /* ################## HOME PAGE #########################*/
+
+    .navbar .nav-items, .navbar .logo{
+        float: none;
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+
+    p{
+        font-size: 1.8rem;
+    }
+    
+    .row{
+        height: auto;
+        width: 100%;
+    }
+    
+    .row .img-item, .row .text-item{
+        float: none;
+        width: 100%;
+        text-align: center;
+    }
+
+    .features .feature-box {
+        box-shadow: none;
+    } 
+    
+    .features .feature-box .box{
+        float: none;
+        width: 100%;
+        text-align: center;
+        box-shadow: 0px 0px 20px 0px #4948484e;
+    }
+
+    .feature-box .box-2 , .feature-box .box-3{
+        margin-top: 7rem;
+    }
+    
+     /* ################## ABOUT PAGE #########################*/
+
+    .about h2, .about p, .about .about-features, .about-figures{
+        padding : 0 1rem 0 1rem;
+    }
+
+    .bnr-left, .bnr-right{
+        float: none;
+        width: 100%;
+        text-align: center;
+        
+    }
+
+    .figure span{
+        font-size: 2.5rem;
+        font-weight: bold;
+        color: #e63946;
+    }
+    
+    .figure p{
+        font-size: 1.5rem;
+        font-weight: 500;
+    }
+
+    .about-banner .bnr-line{
+        margin-bottom: 2em;
+    }
+
+    .about-features .left-col{
+        float: none;
+        width: 100%;
+        /* border: 2px solid green; */
+         padding: 0;
+         margin-top: 3rem;
+        text-align: left;
+    }
+
+    .about-features .right-col{
+        float: none;
+        width: 100%;
+        /* border: 2px solid green; */
+         padding: 0;
+         margin-bottom: 3rem;
+        text-align:left; 
+    }
+
+    /* ################## CONTACT PAGE #########################*/
+
+    .company-add .company{
+        margin-bottom: 4em;
+    }
+
+    .company-add{
+        float: none;
+        width: 100%;
+        height: auto;
+        margin-bottom: 4rem;
+        text-align: center;
+        padding: 4rem;
+        box-shadow: 0px 0px 20px 0px #4948481d;
+    }
+
+    .contact-us{
+        float: none;
+        width: 100%;
+        height: auto;
+        margin-bottom: 4rem;
+        text-align: center;
+        padding: 4rem;
+        box-shadow: 0px 0px 20px 0px #4948481d;
+    }
+
+    .form-element textarea{
+        margin-top: 1rem;
+    }
+
+    .form-btn{
+        margin-top: 2.5rem;
+    }
+
+}
+
+
+@media (min-width: 769px) and (max-width:1200px) {
+    html{
+        font-size: 56.25%;
+    }
+}
+
+@media (orientation:landscape) and (max-height:500px){
+    .header{
+        height: 90vmax;
+    }
+}
